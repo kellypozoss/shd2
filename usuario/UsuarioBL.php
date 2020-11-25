@@ -1,4 +1,3 @@
-
 <?php
 
 require_once '../Conexion.php';
@@ -65,7 +64,7 @@ class UsuarioBL{
                     $usuarioDTO->id= $row['id'];
                     $usuarioDTO->username=$row['username'];
                     $usuarioDTO->password =$row['password'];
-                    $token = bin2hex(openssl_random_pseudo_bytes(30)); // En esta linea se crea el Token
+                    $token = bin2hex(openssl_random_pseudo_bytes(15)); // En esta linea se crea el Token
                     $usuarioDTO->token=$token; // Aqui se agrega el token al usuarioDTO
                     $arrayUsuario->append($usuarioDTO); //tomara los datos de las columnas y lo va a mapear o asignar a los objetos DTO
 

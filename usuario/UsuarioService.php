@@ -30,8 +30,7 @@
         case 'GET':
             {
                 $headers = apache_request_headers();
- 
-            echo  $Obj->Auth($headers['Authorization']);
+                echo  $Obj->Auth($headers['Authorization']);
              
             break;
 
@@ -42,8 +41,8 @@
                 // Para verificar que los $_POST contengan texto se utiliza el siguiente if
                 //isset comprueba si una variable esta vacia 
                 $data= json_decode(file_get_contents('php://input'), true);
-                if((isset($data['Usuario']) && !empty($data['Usuario'])) && (isset($data['Contrasena']) && !empty($data['Contrasena']))) {
-                    $Obj->Read($data['Usuario'], $data['Contrasena']);
+                if((isset($data['username']) && !empty($data['username'])) && (isset($data['password']) && !empty($data['password']))) {
+                    $Obj->Read($data['username'], $data['password']);
                 } else {
                     Echo json_encode("Faltan datos", JSON_PRETTY_PRINT);
                     //En caso de no cumplir la condicion no se realiza ninguna acción.
